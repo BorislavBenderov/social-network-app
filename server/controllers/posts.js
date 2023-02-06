@@ -1,5 +1,14 @@
 import Post from "../models/Post.js";
 
+export const getPost = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 export const createPost = async (req, res) => {
   const newPost = new Post(req.body);
   try {
