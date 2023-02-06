@@ -2,12 +2,14 @@ import express from "express";
 import {
   createPost,
   deletePost,
+  getPost,
   likePost,
   updatePost,
 } from "../controllers/posts";
 
 const router = express.Router();
 
+router.get("/:id", getPost);
 router.post("/", createPost);
 router.put("/:id", updatePost);
 router.delete("/:id", deletePost);
