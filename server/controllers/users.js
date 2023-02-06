@@ -1,6 +1,17 @@
 import bcrypt from "bcrypt";
 import User from "../models/User.js";
 
+export const getUser = async (req, res) => {
+  try {
+    const user = User.findById(req.params.id);
+    const { password, updatedAt, ...other } = user._doc;
+
+    res.status(200).json(other);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 export const updateUser = async (req, res) => {
   if (req.body.userId === req.params.id || req.body.isAdmin) {
     if (req.body.password) {
