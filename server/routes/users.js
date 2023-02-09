@@ -5,11 +5,13 @@ import {
   getUser,
   unfollowUser,
   updateUser,
+  getFriends
 } from "../controllers/users.js";
 
 const router = express.Router();
 
-router.get("/:id", getUser);
+router.get("/", getUser);
+router.get("/friends/:id", getFriends);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 router.put("/:id/follow", followUser);
