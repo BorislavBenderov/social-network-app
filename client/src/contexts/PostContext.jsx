@@ -18,8 +18,18 @@ export const PostContextProvider = ({ children }) => {
     });
   }, []);
 
+  const onCreatePost = (post) => {
+    setTimelinePosts((oldState) => {
+      const newState = [...oldState, post];
+      return newState.sort((p1, p2) => {
+        return new Date(p2.createdAt) - new Date(p1.createdAt);
+      });
+    });
+  };
+
+
   return (
-    <PostContext.Provider value={{ timelinePosts  }}>
+    <PostContext.Provider value={{ timelinePosts onCreatePost }}>
       {children}
     </PostContext.Provider>
   );
