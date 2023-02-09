@@ -15,7 +15,8 @@ API.interceptors.request.use((req) => {
 export const getTimelinePosts = (userId) =>
   API.get(`/api/posts/timeline/${userId}`);
 export const createPost = (newPost) => API.post("/api/posts", newPost);
-export const likePost = (id) => API.patch(`/api/posts/${id}/like`);
+export const likePost = (id, userId) =>
+  API.put(`/api/posts/${id}/like`, { userId });
 export const updatePost = (id, updatedPost) =>
   API.patch(`/api/posts/${id}`, updatedPost);
 export const deletePost = (id) => API.delete(`/api/posts/${id}`);
