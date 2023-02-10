@@ -1,10 +1,13 @@
 import "./Profile.scss";
 import { Topbar, Sidebar, Feed, Rightbar } from "../../components";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const Profile = () => {
+  const { loggedUser } = useContext(AuthContext);
   return (
     <>
-      <Topbar />
+      <Topbar profile />
       <div className="profile">
         <Sidebar />
         <div className="profileRight">
@@ -14,12 +17,12 @@ export const Profile = () => {
               <img className="profile__user__img" src="" alt="" />
             </div>
             <div className="profile__info">
-              <h4 className="profile__info__name">Borko</h4>
+              <h4 className="profile__info__name">{loggedUser.username}</h4>
               <span className="profile__info__desc">Hello friends</span>
             </div>
           </div>
           <div className="profile__right__bottom">
-            <Feed />
+            <Feed profile />
             <Rightbar profile />
           </div>
         </div>
