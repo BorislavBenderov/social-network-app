@@ -7,11 +7,11 @@ import { AuthContextProvider } from "./contexts/AuthContext";
 import { PostContextProvider } from "./contexts/PostContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <BrowserRouter>
-      <AuthContextProvider>
-        <PostContextProvider>
-          <App />
-        </PostContextProvider>
-      </AuthContextProvider>
-    </BrowserRouter>
+  <BrowserRouter>
+    <AuthContextProvider>
+      <PostContextProvider>
+        <App />
+      </PostContextProvider>
+    </AuthContextProvider>
+  </BrowserRouter>
 );
