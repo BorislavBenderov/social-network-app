@@ -3,8 +3,17 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import ChatIcon from "@mui/icons-material/Chat";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useContext } from "react";
+import { PostContext } from "../../contexts/PostContext";
 
-export const Topbar = () => {
+export const Topbar = ({ profile }) => {
+  const {
+    searchTimelinePosts,
+    setSearchTimelinePosts,
+    searchUserPosts,
+    setSearchUserPosts,
+  } = useContext(PostContext);
+
   return (
     <div className="topbar__container">
       <div className="topbar__left">
@@ -16,6 +25,12 @@ export const Topbar = () => {
           <input
             placeholder="Search for friend, post or video"
             className="search__input"
+            value={profile ? searchUserPosts : searchTimelinePosts}
+            onChange={(e) =>
+              profile
+                ? setSearchUserPosts(e.target.value)
+                : setSearchTimelinePosts(e.target.value)
+            }
           />
         </div>
       </div>
