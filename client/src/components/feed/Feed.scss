@@ -1,7 +1,14 @@
 .feed {
-    flex: 5.5;
+  flex: 5.5;
 
-    .feed__wrapper {
-        padding: 20px;
+  .feed__wrapper {
+    padding: 20px;
+
+    .no__searched__posts,
+    .loading {
+      margin-top: 50px;
+      text-align: center;
+      font-size: large;
     }
+  }
 }
